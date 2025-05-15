@@ -11,11 +11,13 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.expert.domain.user.enums.UserRole;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 
 @Slf4j
 @RequiredArgsConstructor
+@Component
 public class JwtFilter implements Filter {
 
     private final JwtUtil jwtUtil;
@@ -42,7 +44,6 @@ public class JwtFilter implements Filter {
         if (bearerJwt == null) {
             // 토큰이 없는 경우 400을 반환합니다.
             httpResponse.sendError(HttpServletResponse.SC_BAD_REQUEST, "JWT 토큰이 필요합니다.");
-            return;
         }
 
         String jwt = jwtUtil.substringToken(bearerJwt);
@@ -86,6 +87,7 @@ public class JwtFilter implements Filter {
             log.error("Internal server error", e);
             httpResponse.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
         }
+
     }
 
     @Override

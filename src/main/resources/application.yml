@@ -13,6 +13,7 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
+        generate_statistics: true
 jwt:
   secret:
     key: BvdCDROpy/QRNPizw10GXalXzl41f/YOK2SfJNK2s+w=

@@ -24,4 +24,9 @@ public class UserController {
     public void changePassword(@Auth AuthUser authUser, @RequestBody UserChangePasswordRequest userChangePasswordRequest) {
         userService.changePassword(authUser.getId(), userChangePasswordRequest);
     }
+
+    @GetMapping("/users/search")
+    public ResponseEntity<UserResponse> getUserWithNick(@RequestParam String nick) {
+        return ResponseEntity.ok(userService.getUserWithNick(nick));
+    }
 }

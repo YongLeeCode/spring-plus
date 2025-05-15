@@ -1,7 +1,5 @@
 package org.example.expert.config;
 
-import java.util.function.Supplier;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
